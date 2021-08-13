@@ -1,0 +1,13 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class RegionSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $this->call(\Concatenate\IndonesianRegions\Database\Seeders\RegionSeeder::class);
+    }
+}
