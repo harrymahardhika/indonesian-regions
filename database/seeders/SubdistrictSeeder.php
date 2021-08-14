@@ -2,9 +2,7 @@
 
 namespace Concatenate\IndonesianRegions\Database\Seeders;
 
-use Concatenate\IndonesianRegions\Models\AreaCity;
 use Concatenate\IndonesianRegions\Models\AreaDistrict;
-use Concatenate\IndonesianRegions\Models\AreaProvince;
 use Concatenate\IndonesianRegions\Models\AreaSubdistrict;
 use Illuminate\Database\Seeder;
 use Jawira\CaseConverter\CaseConverterException;
@@ -35,4 +33,3 @@ class SubdistrictSeeder extends Seeder
         }
     }
 }
-

@@ -27,6 +27,7 @@
     "autoload": {
         "psr-4": {
             "Concatenate\\IndonesianRegions\\": "src/",
+            "Concatenate\\IndonesianRegions\\Database\\Factories\\": "database/factories/",
             "Concatenate\\IndonesianRegions\\Database\\Seeders\\": "database/seeders/"
         }
     },
