@@ -1,9 +1,9 @@
 #! /usr/bin/env sh
 cd data
 
-wget -O provinces.csv https://raw.githubusercontent.com/guzfirdaus/Wilayah-Administrasi-Indonesia/master/csv/provinces.csv
-wget -O cities.csv https://raw.githubusercontent.com/guzfirdaus/Wilayah-Administrasi-Indonesia/master/csv/regencies.csv
-wget -O districts.csv https://raw.githubusercontent.com/guzfirdaus/Wilayah-Administrasi-Indonesia/master/csv/districts.csv
-wget -O subdistricts.csv https://raw.githubusercontent.com/guzfirdaus/Wilayah-Administrasi-Indonesia/master/csv/villages.csv
+wget -O provinces.csv https://raw.githubusercontent.com/harrymahardhika/Wilayah-Administrasi-Indonesia/master/csv/provinces.csv
+wget -O cities.csv https://raw.githubusercontent.com/harrymahardhika/Wilayah-Administrasi-Indonesia/master/csv/regencies.csv
+wget -O districts.csv https://raw.githubusercontent.com/harrymahardhika/Wilayah-Administrasi-Indonesia/master/csv/districts.csv
+wget -O subdistricts.csv https://raw.githubusercontent.com/harrymahardhika/Wilayah-Administrasi-Indonesia/master/csv/villages.csv
 
 sed -i '' 's/regency_id/city_id/g;' districts.csv
