@@ -10,7 +10,7 @@ $finder = (new PhpCsFixer\Finder())
         __DIR__.'/config',
         __DIR__.'/database',
         __DIR__.'/src',
-        __DIR__.'/tests',
+        // __DIR__.'/tests',
     ]);
 
 $config = new PhpCsFixer\Config();

@@ -1,21 +1,21 @@
 {
     "name": "concatenate/indonesian-regions",
-    "description": ":package_description",
+    "description": "Indonesian Region Database",
     "license": "MIT",
     "authors": [
         {
-            "name": "Author Name",
-            "email": "author@email.com",
-            "homepage": "http://author.com"
+            "name": "Harry Mahardhika",
+            "email": "harry@concatenate.id",
+            "homepage": "http://harrymahardhika.com"
         }
     ],
     "homepage": "https://github.com/concatenate/indonesian-regions",
     "keywords": [
-        "Laravel",
-        "IndonesianRegions"
+        "laravel",
+        "indonesian-regions"
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "jawira/case-converter": "^3.4",
         "parsecsv/php-parsecsv": "^1.3"
     },
