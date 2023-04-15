@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Concatenate\IndonesianRegions\Database\Seeders;
 
 use Concatenate\IndonesianRegions\Models\AreaDistrict;
@@ -14,7 +16,7 @@ class SubdistrictSeeder extends Seeder
     /**
      * @throws CaseConverterException
      */
-    public function run()
+    public function run(): void
     {
         $file = __DIR__.'/../../data/subdistricts.csv';
 
