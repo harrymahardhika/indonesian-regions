@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Concatenate\IndonesianRegions;
 
 use Illuminate\Support\ServiceProvider;
