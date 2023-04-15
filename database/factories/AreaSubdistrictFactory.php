@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Concatenate\IndonesianRegions\Database\Factories;
 
 use Concatenate\IndonesianRegions\Models\AreaDistrict;
