@@ -17,12 +17,12 @@
     "require": {
         "php": "^8.0|^8.1",
         "jawira/case-converter": "^3.4",
+        "parsecsv/php-parsecsv": "^1.3",
         "spatie/laravel-data": "^3.0.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
         "orchestra/testbench": "~5|~6|~7",
-        "parsecsv/php-parsecsv": "^1.3",
         "phpunit/phpunit": "~9.0"
     },
     "autoload": {
