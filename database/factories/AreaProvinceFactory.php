@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions\Database\Factories;
+namespace HarryM\IndonesianRegions\Database\Factories;
 
-use Concatenate\IndonesianRegions\Models\AreaProvince;
+use HarryM\IndonesianRegions\Models\AreaProvince;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<AreaProvince>
+ */
 class AreaProvinceFactory extends Factory
 {
     protected $model = AreaProvince::class;

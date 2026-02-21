@@ -2,24 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions\Models;
+namespace HarryM\IndonesianRegions\Models;
 
-use Concatenate\IndonesianRegions\Database\Factories\AreaSubdistrictFactory;
+use HarryM\IndonesianRegions\Database\Factories\AreaSubdistrictFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 
 /**
- * Concatenate\IndonesianRegions\Models\AreaSubdistrict.
+ * HarryM\IndonesianRegions\Models\AreaSubdistrict.
  *
- * @property int                                                $id
- * @property int                                                $district_id
- * @property string                                             $code
- * @property string                                             $name
- * @property \Illuminate\Support\Carbon|null                    $created_at
- * @property \Illuminate\Support\Carbon|null                    $updated_at
- * @property \Concatenate\IndonesianRegions\Models\AreaDistrict $district
  *
  * @method static AreaSubdistrictFactory  factory($count = null, $state = [])
  * @method static Builder|AreaSubdistrict newModelQuery()
@@ -32,19 +26,31 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Builder|AreaSubdistrict whereName($value)
  * @method static Builder|AreaSubdistrict whereUpdatedAt($value)
  *
- * @mixin \Eloquent
+ * @mixin Model
+ *
+ * @property int          $id
+ * @property int          $district_id
+ * @property string       $code
+ * @property string       $name
+ * @property Carbon|null  $created_at
+ * @property Carbon|null  $updated_at
+ * @property AreaDistrict $district
  */
 class AreaSubdistrict extends Model
 {
+    /** @use HasFactory<AreaSubdistrictFactory> */
     use HasFactory;
+
+    /**
+     * @return BelongsTo<AreaDistrict, $this>
+     */
+    public function district(): BelongsTo
+    {
+        return $this->belongsTo(AreaDistrict::class, 'district_id');
+    }
 
     protected static function newFactory(): AreaSubdistrictFactory
     {
         return AreaSubdistrictFactory::new();
-    }
-
-    public function district(): BelongsTo
-    {
-        return $this->belongsTo(AreaDistrict::class, 'district_id');
     }
 }

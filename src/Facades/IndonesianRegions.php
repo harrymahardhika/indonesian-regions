@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions\Facades;
+namespace HarryM\IndonesianRegions\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

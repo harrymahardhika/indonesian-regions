@@ -45,3 +45,4 @@ storage/*.key
 Thumbs.db
 yarn-error.log
 
+.phpactor.json

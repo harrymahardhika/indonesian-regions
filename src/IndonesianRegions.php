@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions;
+namespace HarryM\IndonesianRegions;
 
 class IndonesianRegions
 {

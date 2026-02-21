@@ -16,7 +16,7 @@ class CreateAreaDistrictsTable extends Migration
         Schema::create('area_districts', static function (Blueprint $table): void {
             $table->id();
             $table->foreignId('city_id');
-            $table->string('code')->index();
+            $table->string('code')->unique();
             $table->string('name')->index();
             $table->timestamps();
 

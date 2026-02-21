@@ -2,33 +2,47 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions\Database\Seeders;
+namespace HarryM\IndonesianRegions\Database\Seeders;
 
-use Concatenate\IndonesianRegions\Models\AreaProvince;
+use HarryM\IndonesianRegions\Models\AreaProvince;
 use Illuminate\Database\Seeder;
-use Jawira\CaseConverter\CaseConverterException;
-use Jawira\CaseConverter\Convert;
-use ParseCsv\Csv;
 
 class ProvinceSeeder extends Seeder
 {
-    /**
-     * @throws CaseConverterException
-     */
     public function run(): void
     {
         $file = __DIR__.'/../../data/provinces.csv';
-
-        $csv = new Csv();
-        $csv->delimiter = ';';
-        $csv->parseFile($file);
-
-        foreach ($csv->data as $row) {
-            $province = AreaProvince::firstOrNew(['code' => $row['id']]);
-            $province->code = $row['id'];
-            $name = 'DKI JAKARTA' === $row['name'] ? 'DKI Jakarta' : (new Convert($row['name']))->toTitle();
-            $province->name = $name;
-            $province->save();
+        $handle = fopen($file, 'rb');
+        if (false === $handle) {
+            throw new \RuntimeException("Failed to open file: {$file}");
         }
+
+        // Read headers
+        $headers = fgetcsv($handle, 0, ';');
+        if (false === $headers) {
+            fclose($handle);
+
+            throw new \RuntimeException("Failed to read headers from file: {$file}");
+        }
+
+        /** @var array<int, string> $headers */
+        $data = [];
+        $now = now()->toDateTimeString();
+
+        while (($row = fgetcsv($handle, 0, ';')) !== false) {
+            $row = array_combine($headers, $row);
+            $data[] = [
+                'code' => $row['id'],
+                'name' => $row['name'],
+                'created_at' => $now,
+                'updated_at' => $now,
+            ];
+        }
+
+        foreach (array_chunk($data, 1000) as $chunk) {
+            AreaProvince::upsert($chunk, ['code'], ['name', 'updated_at']);
+        }
+
+        fclose($handle);
     }
 }

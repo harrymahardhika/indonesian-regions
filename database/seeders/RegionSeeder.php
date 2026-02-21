@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions\Database\Seeders;
+namespace HarryM\IndonesianRegions\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 

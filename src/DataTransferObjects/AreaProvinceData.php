@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions\DataTransferObjects;
+namespace HarryM\IndonesianRegions\DataTransferObjects;
 
 use Spatie\LaravelData\Data;
 
@@ -12,6 +12,5 @@ class AreaProvinceData extends Data
         public int $id,
         public string $code,
         public string $name,
-    ) {
-    }
+    ) {}
 }

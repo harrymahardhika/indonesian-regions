@@ -16,7 +16,7 @@ class CreateAreaCitiesTable extends Migration
         Schema::create('area_cities', static function (Blueprint $table): void {
             $table->id();
             $table->foreignId('province_id');
-            $table->string('code')->index();
+            $table->string('code')->unique();
             $table->string('name')->index();
             $table->timestamps();
 

@@ -8,6 +8,6 @@ class RegionSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call(\Concatenate\IndonesianRegions\Database\Seeders\RegionSeeder::class);
+        $this->call(\HarryM\IndonesianRegions\Database\Seeders\RegionSeeder::class);
     }
 }

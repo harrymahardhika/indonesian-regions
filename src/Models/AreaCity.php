@@ -2,27 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions\Models;
+namespace HarryM\IndonesianRegions\Models;
 
-use Concatenate\IndonesianRegions\Database\Factories\AreaCityFactory;
+use HarryM\IndonesianRegions\Database\Factories\AreaCityFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 
 /**
- * Concatenate\IndonesianRegions\Models\AreaCity.
- *
- * @property int                                                                                               $id
- * @property int                                                                                               $province_id
- * @property string                                                                                            $code
- * @property string                                                                                            $name
- * @property \Illuminate\Support\Carbon|null                                                                   $created_at
- * @property \Illuminate\Support\Carbon|null                                                                   $updated_at
- * @property \Illuminate\Database\Eloquent\Collection<int, \Concatenate\IndonesianRegions\Models\AreaDistrict> $districts
- * @property int|null                                                                                          $districts_count
- * @property \Concatenate\IndonesianRegions\Models\AreaProvince                                                $province
+ * HarryM\IndonesianRegions\Models\AreaCity.
  *
  * @method static AreaCityFactory  factory($count = null, $state = [])
  * @method static Builder|AreaCity newModelQuery()
@@ -35,24 +27,41 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static Builder|AreaCity whereProvinceId($value)
  * @method static Builder|AreaCity whereUpdatedAt($value)
  *
- * @mixin \Eloquent
+ * @mixin Model
+ *
+ * @property int                           $id
+ * @property int                           $province_id
+ * @property string                        $code
+ * @property string                        $name
+ * @property Carbon|null                   $created_at
+ * @property Carbon|null                   $updated_at
+ * @property Collection<int, AreaDistrict> $districts
+ * @property int|null                      $districts_count
+ * @property AreaProvince                  $province
  */
 class AreaCity extends Model
 {
+    /** @use HasFactory<AreaCityFactory> */
     use HasFactory;
 
-    protected static function newFactory(): AreaCityFactory
-    {
-        return AreaCityFactory::new();
-    }
-
+    /**
+     * @return BelongsTo<AreaProvince, $this>
+     */
     public function province(): BelongsTo
     {
         return $this->belongsTo(AreaProvince::class, 'province_id');
     }
 
+    /**
+     * @return HasMany<AreaDistrict, $this>
+     */
     public function districts(): HasMany
     {
         return $this->hasMany(AreaDistrict::class, 'city_id');
+    }
+
+    protected static function newFactory(): AreaCityFactory
+    {
+        return AreaCityFactory::new();
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Concatenate\IndonesianRegions;
+namespace HarryM\IndonesianRegions;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -29,13 +29,13 @@ class IndonesianRegionsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/indonesian-regions.php', 'indonesian-regions');
 
         // Register the service the package provides.
-        $this->app->singleton('indonesian-regions', function ($app) {
-            return new IndonesianRegions();
-        });
+        $this->app->singleton('indonesian-regions', fn (): IndonesianRegions => new IndonesianRegions());
     }
 
     /**
      * Get the services provided by the provider.
+     *
+     * @return string[]
      */
     public function provides(): array
     {
